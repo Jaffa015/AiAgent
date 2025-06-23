@@ -3,7 +3,7 @@ from pathlib import Path
 from google.genai import types
 
 
-def get_files_info(working_directory, directory=None):
+def get_files_info(working_directory, directory="./"):
     path_working_directory = Path(working_directory).resolve()
     path_directory = Path(directory)
     if not path_directory.is_absolute():
@@ -15,7 +15,6 @@ def get_files_info(working_directory, directory=None):
         return f'Error: "{directory}" is not a directory'
 
     dir_objects = os.listdir(path_directory)
-    print(f"Listing files of - {working_directory}/{directory}")
     object_strings = []
     try:
         for dir_object in dir_objects:
